@@ -26,6 +26,27 @@ function calculateAll() {
 document.querySelector('#calculate').onclick = function (e) {
   calculateAll()
 }
+document.querySelector('#create').onclick = function (e) {
+  console.log(e) 
+  let productname = document.querySelector("#cart > tfoot > tr > td:nth-child(1) > input[type=text]").value
+  console.log(productname)
+  let productprice = document.querySelector("#cart > tfoot > tr > td:nth-child(2) > input[type=number]").value
+  console.log(productprice)
 
+let newhtml = `<tr class="product">
+<td class="name">
+  <span> ${productname}</span>
+</td>
+<td class="price">$<span>${productprice}</span></td>
+<td class="quantity">
+  <input type="number" value="0" min="0" placeholder="Quantity" />
+</td>
+<td class="subtotal">$<span>0</span></td>
+<td class="action">
+  <button class="btn btn-remove">Remove</button>
+</td>
+</tr>`
+document.querySelector("tbody").innerHTML += newhtml
+}
 
 // document.querySelector('.btn-remove').onclick = function(remove){
