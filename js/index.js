@@ -47,6 +47,18 @@ let newhtml = `<tr class="product">
 </td>
 </tr>`
 document.querySelector("tbody").innerHTML += newhtml
+fancyName()
 }
 
 // document.querySelector('.btn-remove').onclick = function(remove){
+
+function fancyName(){
+  let removeButtons = document.querySelectorAll('.btn-remove')
+
+  for (let button of removeButtons){
+    button.onclick=function(e){
+      e.target.parentElement.parentElement.remove()
+    }
+  }
+}
+fancyName()
