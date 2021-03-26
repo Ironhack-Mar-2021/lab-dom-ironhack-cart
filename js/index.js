@@ -12,15 +12,20 @@ function calculateSubTotal(product) {
 }
 
 function calculateAll() {
+  let total= 0
+
   let products = document.querySelectorAll("tr.product")
   for (let p of products) {
     console.log(p)
-    calculateSubTotal(p)
+    
+    total += calculateSubTotal(p)
   }
-  
+  document.querySelector("#total-value span").innerText= total 
 }
 
 document.querySelector('#calculate').onclick = function (e) {
   calculateAll()
 }
+
+
 // document.querySelector('.btn-remove').onclick = function(remove){
